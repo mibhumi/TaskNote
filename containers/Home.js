@@ -28,7 +28,7 @@ const Home = () => {
       <TouchableOpacity
         onPress={saveTask}
         style={tw`h-10 w-full bg-white rounded items-center justify-center border border-blue-500 w-44`}>
-        <Text style={tw`text-lg text-blue-500 font-bold`}>Details</Text>
+        <Text style={tw`text-lg text-blue-500 font-bold`}>Add</Text>
       </TouchableOpacity>
       <View
         style={tw`p-4 android:pt-2 text-blue-200 flex-row justify-center flex-col items-center m-5`}>
