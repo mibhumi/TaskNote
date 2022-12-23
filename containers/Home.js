@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 
 const Home = () => {
@@ -7,8 +7,10 @@ const Home = () => {
   const [task, setTask] = useState('');
 
   const saveTask = () => {
-    var id = Math.floor(Math.random() * 1000000);
-    setList([...list, {id, task}]);
+    if (task !== '') {
+      var id = Math.floor(Math.random() * 1000000);
+      setList([...list, {id, task}]);
+    }
   };
 
   const deleteTask = id => {
@@ -34,14 +36,19 @@ const Home = () => {
         style={tw`p-4 android:pt-2 text-blue-200 flex-row justify-center flex-col items-center m-5`}>
         {list &&
           list.map(data => (
-            <View key={data.id} style={tw`flex-row bg-blue-200 rounded-md m-1 w-64`}>
-              <Text style={tw`m-2 rounded-md w-48 h-16 truncate`}>
-                {data.task}
-              </Text>
+            <View
+              key={data.id}
+              style={tw`flex-row bg-blue-200 rounded-md m-1 w-64`}>
+              <Text style={tw`m-2 rounded-md w-48 h-16 p-5`}>{data.task}</Text>
               <TouchableOpacity
                 onPress={() => deleteTask(data.id)}
-                style={tw`h-10 w-full bg-white rounded items-center justify-center border border-blue-500 w-8 m-2`}>
-                <Text style={tw`text-lg text-blue-500 font-bold`}>Del</Text>
+                style={tw`bg-transparent rounded items-center justify-center m-2`}>
+                <Image
+                  style={tw`h-4 w-4`}
+                  source={{
+                    uri: 'https://img.icons8.com/material-outlined/512/multiply.png',
+                  }}
+                />
               </TouchableOpacity>
             </View>
           ))}
