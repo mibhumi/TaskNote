@@ -11,7 +11,7 @@ const Home = () => {
   const [list, setList] = useState<task>([]);
   const [task, setTask] = useState<string>('');
 
-  const saveTask = () => {
+  const saveTask = (): void => {
     if (task !== '') {
       var id = Math.floor(Math.random() * 1000000);
       setList([...list, {id, task}]);
@@ -29,6 +29,7 @@ const Home = () => {
       <TextInput
         type="text"
         onChangeText={setTask}
+        maxLength={35}
         placeholder="Enter task"
         style={tw`border-blue-700 bg-blue-300 border-black border-opacity-75 text-black w-44 m-5 rounded-md`}
       />
@@ -44,7 +45,7 @@ const Home = () => {
             <View
               key={data.id}
               style={tw`flex-row bg-blue-200 rounded-md m-1 w-64`}>
-              <Text style={tw`m-2 rounded-md w-48 h-16 overflow-clip`}>
+              <Text style={tw`m-2 rounded-md w-48 h-8 overflow-clip`}>
                 {data.task}
               </Text>
               <TouchableOpacity
