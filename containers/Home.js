@@ -1,5 +1,4 @@
 import React, {type PropsWithChildren} from 'react';
-import {useTailwind} from 'tailwind-rn';
 import {View, Text} from 'react-native';
 
 const Home = () => {
