@@ -27,8 +27,6 @@ To run the app locally, follow these steps:
 3. Install the dependencies: `npm install`
 4. Run application on android / ios: `npm run android` / `npm run ios`
 
-The app should now be running on [http://localhost:3000](http://localhost:3000).
-
 ## API Key 🔑
 
 In order to use codePush, you'll need to sign up for a free API key at [https://appcenter.ms/). Once you have your release and production key, update your in android and ios folder respectively:
