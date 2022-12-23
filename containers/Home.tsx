@@ -2,9 +2,14 @@ import React, {useState} from 'react';
 import {View, Text, TextInput, TouchableOpacity, Image} from 'react-native';
 import tw from 'tailwind-react-native-classnames';
 
+interface task {
+  id: number;
+  task: string;
+}
+
 const Home = () => {
-  const [list, setList] = useState([]);
-  const [task, setTask] = useState('');
+  const [list, setList] = useState<task>([]);
+  const [task, setTask] = useState<string>('');
 
   const saveTask = () => {
     if (task !== '') {
@@ -13,7 +18,7 @@ const Home = () => {
     }
   };
 
-  const deleteTask = id => {
+  const deleteTask = (id: number): void => {
     var newList = list.filter(data => data.id !== id);
     setList(newList);
   };
@@ -39,7 +44,9 @@ const Home = () => {
             <View
               key={data.id}
               style={tw`flex-row bg-blue-200 rounded-md m-1 w-64`}>
-              <Text style={tw`m-2 rounded-md w-48 h-16 p-5`}>{data.task}</Text>
+              <Text style={tw`m-2 rounded-md w-48 h-16 overflow-clip`}>
+                {data.task}
+              </Text>
               <TouchableOpacity
                 onPress={() => deleteTask(data.id)}
                 style={tw`bg-transparent rounded items-center justify-center m-2`}>
