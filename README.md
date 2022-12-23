@@ -1,4 +1,4 @@
-# 🌦 TaskNote App 🌦
+# TaskNote App 📝
 
 TaskNote is react native based mobile application allows user to add short task and delete it once it's completed.
 
